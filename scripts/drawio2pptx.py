@@ -103,7 +103,11 @@ def main():
             made += 1
 
     if not made:
-        sys.exit("error: no pages exported (is the draw.io CLI installed?)")
+        sys.exit(
+            "error: no pages exported. You may not have draw.io Desktop available; "
+            "ask your Agent to install it with `brew install --cask drawio`, "
+            "or install it manually from https://github.com/jgraph/drawio-desktop/releases"
+        )
     prs.save(out)
     sys.stderr.write(f"wrote {out} ({made} slide{'s' if made != 1 else ''})\n")
 

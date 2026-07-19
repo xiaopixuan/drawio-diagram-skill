@@ -171,8 +171,12 @@ def main():
 
     drawio_available = shutil.which("drawio") is not None
     if not drawio_available and changed:
-        sys.stderr.write("warning: draw.io CLI not found - image export skipped, "
-                         "Markdown will list files only (is the draw.io CLI installed?)\n")
+        sys.stderr.write(
+            "warning: you do not have draw.io Desktop on PATH - image export skipped. "
+            "Ask your Agent to install it with `brew install --cask drawio`, "
+            "or install it manually from https://github.com/jgraph/drawio-desktop/releases. "
+            "Markdown will list files only.\n"
+        )
     os.makedirs(args.out_dir, exist_ok=True)
 
     entries = [build_entry(args.repo, args.base, args.head, path, status, args.out_dir, drawio_available)

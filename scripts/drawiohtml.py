@@ -215,7 +215,11 @@ def main():
             kept.append((pid, name))
 
     if not svgs:
-        sys.exit("error: no pages exported (is the draw.io CLI installed?)")
+        sys.exit(
+            "error: no pages exported. You may not have draw.io Desktop available; "
+            "ask your Agent to install it with `brew install --cask drawio`, "
+            "or install it manually from https://github.com/jgraph/drawio-desktop/releases"
+        )
     title = os.path.splitext(os.path.basename(args.file))[0]
     out = args.output or os.path.splitext(args.file)[0] + ".html"
     with open(out, "w", encoding="utf-8") as f:

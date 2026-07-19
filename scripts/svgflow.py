@@ -38,7 +38,11 @@ def to_svg(path):
         r = subprocess.run(["drawio", "-x", "-f", "svg", "-o", out, path],
                            capture_output=True)
         if r.returncode != 0 or not os.path.exists(out):
-            sys.exit("error: draw.io SVG export failed (is the draw.io CLI installed?)")
+            sys.exit(
+                "error: draw.io SVG export failed. You may not have draw.io Desktop available; "
+                "ask your Agent to install it with `brew install --cask drawio`, "
+                "or install it manually from https://github.com/jgraph/drawio-desktop/releases"
+            )
         with open(out, encoding="utf-8") as f:
             return f.read()
 

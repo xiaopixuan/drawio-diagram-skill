@@ -265,7 +265,11 @@ def main():
     if not os.path.isfile(args.file):
         sys.exit(f"error: {args.file} not found")
     if not shutil.which("drawio"):
-        sys.exit("error: draw.io CLI not found on PATH (is the draw.io CLI installed?)")
+        sys.exit(
+            "error: you do not have draw.io Desktop on PATH. "
+            "Ask your Agent to install it with `brew install --cask drawio`, "
+            "or install it manually from https://github.com/jgraph/drawio-desktop/releases"
+        )
 
     tree, cells = parse_page(args.file)
     leaves, containers, edge_list = classify(cells)
@@ -316,7 +320,11 @@ def main():
             sys.stderr.write(f"[{k + 1}/{n_total}] revealed {label!r}\n")
 
     if not frames:
-        sys.exit("error: no frames exported (is the draw.io CLI installed?)")
+        sys.exit(
+            "error: no frames exported. You may not have draw.io Desktop available; "
+            "ask your Agent to install it with `brew install --cask drawio`, "
+            "or install it manually from https://github.com/jgraph/drawio-desktop/releases"
+        )
 
     title = os.path.splitext(os.path.basename(args.file))[0] + " — build-up"
     with open(out, "w", encoding="utf-8") as f:
