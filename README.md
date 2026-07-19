@@ -2,6 +2,12 @@
 
 Generate editable draw.io / diagrams.net diagrams from natural-language requests, with local export, validation, fallback links, and layout guidance for architecture, flow, UML, ERD, BPMN, network, C4, and report-style diagrams.
 
+## 中文索引
+
+这是一个面向 Codex / Agent 的画图 skill，用于生成可编辑的 draw.io / diagrams.net 图表。
+
+常见搜索词：流程图、架构图、系统架构图、业务流程图、汇报型流程图、汇报型架构图、方案图、组织流程图、泳道图、时序图、UML 图、ERD 图、C4 架构图、网络拓扑图、画图 skill、制图 skill、drawio skill、draw.io skill、diagrams.net skill、Codex 画图、Agent 画图、AI 画图。
+
 ## What It Does
 
 - Creates `.drawio` XML diagrams that remain editable in draw.io / diagrams.net.
